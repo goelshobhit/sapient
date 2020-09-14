@@ -6,6 +6,7 @@ const { HashedModuleIdsPlugin } = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 module.exports = require('./webpack.base.babel')({
   mode: 'production',
@@ -139,6 +140,11 @@ module.exports = require('./webpack.base.babel')({
 
       // Removes warning for about `additional` section usage
       safeToUseOptionalCaches: true,
+    }),
+    new ImageminPlugin({
+      pngquant: {
+        quality: '95-100',
+      },
     }),
   ],
 
