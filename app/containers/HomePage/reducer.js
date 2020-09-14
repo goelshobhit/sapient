@@ -4,15 +4,31 @@
  *
  */
 import produce from 'immer';
-import { DEFAULT_ACTION } from './constants';
+import {
+  GET_SPACE_DATA,
+  SPACE_DATA_SUCCESS,
+  SPACE_DATA_FAIL,
+} from './constants';
 
-export const initialState = {};
+export const initialState = {
+  loading: false,
+  error: false,
+  data: [],
+};
 
 /* eslint-disable default-case, no-param-reassign */
 const homePageReducer = (state = initialState, action) =>
-  produce(state, (/* draft */) => {
+  produce(state, draft => {
     switch (action.type) {
-      case DEFAULT_ACTION:
+      case GET_SPACE_DATA:
+        draft.loading = true;
+        break;
+      case SPACE_DATA_SUCCESS:
+        draft.loading = false;
+        draft.data = action.payload;
+        break;
+      case SPACE_DATA_FAIL:
+        draft.loading = false;
         break;
     }
   });
