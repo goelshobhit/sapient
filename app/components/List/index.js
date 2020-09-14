@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /**
  *
  * List
@@ -5,11 +6,19 @@
  */
 
 import React from 'react';
-// import PropTypes from 'prop-types';
-// import styled from 'styled-components';
+import Grid from '@material-ui/core/Grid';
+import SpaceCard from 'components/SpaceCard';
 
-function List() {
-  return <div />;
+function List({ data }) {
+  return (
+    <Grid container spacing={3} style={{ padding: '24px' }}>
+      {data.map(item => (
+        <Grid key={data.flight_number} item xs={12} sm={6} md={4} lg={4} xl={4}>
+          <SpaceCard data={item} />
+        </Grid>
+      ))}
+    </Grid>
+  );
 }
 
 List.propTypes = {};

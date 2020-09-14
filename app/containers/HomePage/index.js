@@ -20,6 +20,10 @@ import { useInjectReducer } from 'utils/injectReducer';
 
 import Skeleton from '@material-ui/lab/Skeleton';
 import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+
+import List from 'components/List';
+import Options from 'components/Options';
 
 import makeSelectHomePage from './selectors';
 import reducer from './reducer';
@@ -51,11 +55,6 @@ export function HomePage({ OnRequestSpaceData, homePage: { data, loading } }) {
 
   return (
     <div>
-      <style jsx="true">{`
-        .container {
-          padding-top: 30px;
-        }
-      `}</style>
       <Helmet>
         <title>HomePage</title>
         <meta name="description" content="Description of HomePage" />
@@ -65,10 +64,19 @@ export function HomePage({ OnRequestSpaceData, homePage: { data, loading } }) {
         <Typography variant="h3" component="h1" gutterBottom strong="true">
           <FormattedMessage {...messages.header} />
         </Typography>
-        <div className="d-flex flex-row align-items-center justify-content-between w-100">
-          <div>Options</div>
-          <div>Gmail</div>
-        </div>
+        <Grid
+          container
+          spacing={10}
+          style={{ padding: '24px' }}
+          alignItems="flex-start"
+        >
+          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+            <Options />
+          </Grid>
+          <Grid item xs={12} sm={12} md={8} lg={8} xl={8}>
+            <List data={data} />
+          </Grid>
+        </Grid>
       </div>
     </div>
   );

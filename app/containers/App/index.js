@@ -37,7 +37,7 @@ export function App() {
   });
 
   return (
-    <Container disableGutters fixed>
+    <Container disableGutters>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="" component={NotFoundPage} />
