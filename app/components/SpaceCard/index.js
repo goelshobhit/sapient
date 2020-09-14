@@ -56,18 +56,34 @@ function SpaceCard({ data }) {
         variant="h5"
         className={classes.heading}
         component="p"
+        data-aos="flip-right"
       >
         {data.mission_name}
       </Typography>
-      <Typography variant="body2" gutterBottom component="div">
+      <Typography
+        variant="body2"
+        gutterBottom
+        component="div"
+        data-aos="flip-right"
+      >
         <div className={classes.title}>Launch Year</div>{' '}
         <div className={classes.subTitle}>{data.launch_year}</div>
       </Typography>
-      <Typography variant="body2" gutterBottom component="div">
+      <Typography
+        variant="body2"
+        gutterBottom
+        component="div"
+        data-aos="flip-right"
+      >
         <div className={classes.title}>SuccessFul Launch</div>{' '}
         <div className={classes.subTitle}>{data.launch_success.toString()}</div>
       </Typography>
-      <Typography variant="body2" gutterBottom component="div">
+      <Typography
+        variant="body2"
+        gutterBottom
+        component="div"
+        data-aos="flip-right"
+      >
         <div className={classes.title}>SuccessFul Landing</div>{' '}
         <div className={classes.subTitle}>{data.launch_site.site_name}</div>
       </Typography>

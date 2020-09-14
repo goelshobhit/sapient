@@ -37,7 +37,10 @@ function Options({ action }) {
       <Typography variant="h5" gutterBottom>
         <FormattedMessage {...messages.launchYear} gutterBottom />
       </Typography>
-      <div className="d-flex flex-row align-align-items-center justify-content-between w-100 mb-5">
+      <div
+        className="d-flex flex-row align-align-items-center justify-content-between w-100 mb-5"
+        data-aos="zoom-in-down"
+      >
         <Button
           variant="contained"
           color="secondary"
@@ -55,7 +58,10 @@ function Options({ action }) {
           2015
         </Button>
       </div>
-      <div className="d-flex flex-row align-align-items-center justify-content-between w-100 mb-5">
+      <div
+        className="d-flex flex-row align-align-items-center justify-content-between w-100 mb-5"
+        data-aos="zoom-in-down"
+      >
         <Button
           variant="contained"
           color="secondary"
@@ -73,7 +79,10 @@ function Options({ action }) {
           2017
         </Button>
       </div>
-      <div className="d-flex flex-row align-align-items-center justify-content-between w-100 mb-5">
+      <div
+        className="d-flex flex-row align-align-items-center justify-content-between w-100 mb-5"
+        data-aos="zoom-in-down"
+      >
         <Button
           variant="contained"
           color="secondary"
@@ -91,7 +100,10 @@ function Options({ action }) {
           2019
         </Button>
       </div>
-      <div className="d-flex flex-row align-align-items-center justify-content-between w-100 mb-5">
+      <div
+        className="d-flex flex-row align-align-items-center justify-content-between w-100 mb-5"
+        data-aos="zoom-in-down"
+      >
         <Button
           variant="contained"
           color="secondary"
@@ -104,7 +116,10 @@ function Options({ action }) {
       <Typography variant="h5" gutterBottom>
         <FormattedMessage {...messages.successfulLaunch} gutterBottom />
       </Typography>
-      <div className="d-flex flex-row align-align-items-center justify-content-between w-100 mb-5">
+      <div
+        className="d-flex flex-row align-align-items-center justify-content-between w-100 mb-5"
+        data-aos="zoom-in-down"
+      >
         <Button
           variant="contained"
           color="secondary"
@@ -125,7 +140,10 @@ function Options({ action }) {
       <Typography variant="h5" gutterBottom className="font-weight-bold">
         <FormattedMessage {...messages.successfulLanding} gutterBottom />
       </Typography>
-      <div className="d-flex flex-row align-align-items-center justify-content-between w-100 mb-5">
+      <div
+        className="d-flex flex-row align-align-items-center justify-content-between w-100 mb-5"
+        data-aos="zoom-in-down"
+      >
         <Button
           variant="contained"
           color="secondary"
