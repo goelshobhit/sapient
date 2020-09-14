@@ -147,6 +147,8 @@ function Options({ action }) {
   );
 }
 
-Options.propTypes = {};
+Options.propTypes = {
+  ...Options,
+};
 
 export default Options;
