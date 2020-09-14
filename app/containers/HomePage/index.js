@@ -53,6 +53,9 @@ export function HomePage({ OnRequestSpaceData, homePage: { data, loading } }) {
     );
   }
 
+  function handleFilterData(data){
+    console.log(data);
+  }
   return (
     <div>
       <Helmet>
@@ -71,7 +74,7 @@ export function HomePage({ OnRequestSpaceData, homePage: { data, loading } }) {
           alignItems="flex-start"
         >
           <Grid item xs={12} sm={12} md={4} lg={3} xl={3}>
-            <Options />
+            <Options action={handleFilterData} />
           </Grid>
           <Grid item xs={12} sm={12} md={8} lg={9} xl={9}>
             <List data={data} />

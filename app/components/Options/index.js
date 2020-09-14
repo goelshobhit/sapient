@@ -26,7 +26,7 @@ const useStyles = makeStyles({
   },
 });
 
-function Options() {
+function Options({ action }) {
   const classes = useStyles();
   return (
     <Card className={classes.root}>
@@ -42,6 +42,7 @@ function Options() {
           variant="contained"
           color="secondary"
           className={classes.button}
+          onClick={() => action({ launchYear: 2014, launchSuccess: true })}
         >
           2014
         </Button>
@@ -49,6 +50,7 @@ function Options() {
           variant="contained"
           color="secondary"
           className={classes.button}
+          onClick={() => action({ launchYear: 2015, launchSuccess: false })}
         >
           2015
         </Button>
@@ -58,6 +60,7 @@ function Options() {
           variant="contained"
           color="secondary"
           className={classes.button}
+          onClick={() => action({ launchYear: 2016, launchSuccess: true })}
         >
           2016
         </Button>
@@ -65,6 +68,7 @@ function Options() {
           variant="contained"
           color="secondary"
           className={classes.button}
+          onClick={() => action({ launchYear: 2017, launchSuccess: false })}
         >
           2017
         </Button>
@@ -74,6 +78,7 @@ function Options() {
           variant="contained"
           color="secondary"
           className={classes.button}
+          onClick={() => action({ launchYear: 2018, launchSuccess: true })}
         >
           2018
         </Button>
@@ -81,6 +86,7 @@ function Options() {
           variant="contained"
           color="secondary"
           className={classes.button}
+          onClick={() => action({ launchYear: 2019, launchSuccess: false })}
         >
           2019
         </Button>
@@ -90,6 +96,7 @@ function Options() {
           variant="contained"
           color="secondary"
           className={classes.button}
+          onClick={() => action({ launchYear: 2020, launchSuccess: true })}
         >
           2020
         </Button>
@@ -102,6 +109,7 @@ function Options() {
           variant="contained"
           color="secondary"
           className={classes.button}
+          onClick={() => action({ launchSuccess: true })}
         >
           True
         </Button>
@@ -109,6 +117,7 @@ function Options() {
           variant="contained"
           color="secondary"
           className={classes.button}
+          onClick={() => action({ launchSuccess: false })}
         >
           False
         </Button>
@@ -121,6 +130,7 @@ function Options() {
           variant="contained"
           color="secondary"
           className={classes.button}
+          onClick={() => action({ landSuccess: false })}
         >
           True
         </Button>
@@ -128,6 +138,7 @@ function Options() {
           variant="contained"
           color="secondary"
           className={classes.button}
+          onClick={() => action({ landSuccess: false })}
         >
           False
         </Button>

@@ -1,6 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import request from 'utils/request';
-import useSWR from 'swr';
 
 import { spaceDataSuccess, spaceDataFail } from './actions';
 import { GET_SPACE_DATA } from './constants';
