@@ -21,6 +21,7 @@ import { useInjectReducer } from 'utils/injectReducer';
 import Skeleton from '@material-ui/lab/Skeleton';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import { CircularProgress } from '@material-ui/core';
 
 import List from 'components/List';
 import Options from 'components/Options';
@@ -41,20 +42,17 @@ export function HomePage({ OnRequestSpaceData, homePage: { data, loading } }) {
 
   if (loading) {
     return (
-      <div className="d-flex flex-column align-items-center justify-content-between w-100 h-100">
-        {new Array(5).map(value => {
-          <div key={value}>
-            <Skeleton variant="text" />
-            <Skeleton variant="circle" width={40} height={40} />
-            <Skeleton variant="rect" width={210} height={118} />
-          </div>;
-        })}
+      <div
+        className="d-flex flex-column align-items-center justify-content-center"
+        style={{ height: '100vh' }}
+      >
+        <CircularProgress />
       </div>
     );
   }
 
-  function handleFilterData(data){
-    console.log(data);
+  function handleFilterData(filterData) {
+    OnRequestSpaceData(filterData);
   }
   return (
     <div>
