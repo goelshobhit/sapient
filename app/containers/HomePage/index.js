@@ -61,7 +61,13 @@ export function HomePage({ OnRequestSpaceData, homePage: { data, loading } }) {
       </Helmet>
 
       <div className="container">
-        <Typography variant="h3" component="h1" gutterBottom strong="true" data-aos="fade-up">
+        <Typography
+          variant="h3"
+          component="h1"
+          gutterBottom
+          strong="true"
+          data-aos="fade-up"
+        >
           <FormattedMessage {...messages.header} />
         </Typography>
         <Grid
