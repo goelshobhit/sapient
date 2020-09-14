@@ -11,6 +11,18 @@ export const scope = 'app.components.Options';
 export default defineMessages({
   header: {
     id: `${scope}.header`,
-    defaultMessage: 'This is the Options component!',
+    defaultMessage: 'filter',
+  },
+  launchYear: {
+    id: `${scope}.launchYear`,
+    defaultMessage: 'Launch Year',
+  },
+  successfulLaunch: {
+    id: `${scope}.successfulLaunch`,
+    defaultMessage: 'Successful launch',
+  },
+  successfulLanding: {
+    id: `${scope}.successfulLanding`,
+    defaultMessage: 'Successful landing',
   },
 });

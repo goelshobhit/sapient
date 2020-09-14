@@ -70,10 +70,10 @@ export function HomePage({ OnRequestSpaceData, homePage: { data, loading } }) {
           style={{ padding: '24px' }}
           alignItems="flex-start"
         >
-          <Grid item xs={12} sm={12} md={4} lg={4} xl={4}>
+          <Grid item xs={12} sm={12} md={4} lg={3} xl={3}>
             <Options />
           </Grid>
-          <Grid item xs={12} sm={12} md={8} lg={8} xl={8}>
+          <Grid item xs={12} sm={12} md={8} lg={9} xl={9}>
             <List data={data} />
           </Grid>
         </Grid>

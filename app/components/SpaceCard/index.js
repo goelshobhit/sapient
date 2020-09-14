@@ -16,10 +16,11 @@ import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
+    margin: 10,
   },
   media: {
-    height: 140,
+    height: 240,
+    backgroundColor: '#d5d5d5',
   },
   heading: {
     color: 'blue',
@@ -46,30 +47,31 @@ function SpaceCard({ data }) {
     <Card className={classes.root}>
       <CardActionArea>
         <CardMedia
+          component="img"
           className={classes.media}
-          image={data.links.mission_patch}
+          src={data.links.mission_patch}
           title="Contemplative Reptile"
         />
-        <CardContent>
+        <CardContent component="div">
           <Typography
             gutterBottom
             variant="h5"
-            component="h2"
             className={classes.heading}
+            component="div"
           >
             {data.mission_name}
           </Typography>
-          <Typography variant="body2" strong gutterBottom>
+          <Typography variant="body2" gutterBottom component="div">
             <div className={classes.title}>Launch Year</div>{' '}
             <div className={classes.subTitle}>{data.launch_year}</div>
           </Typography>
-          <Typography variant="body2" strong gutterBottom>
+          <Typography variant="body2" gutterBottom component="div">
             <div className={classes.title}>SuccessFul Launch</div>{' '}
             <div className={classes.subTitle}>
               {data.launch_success.toString()}
             </div>
           </Typography>
-          <Typography variant="body2" strong gutterBottom>
+          <Typography variant="body2" gutterBottom component="div">
             <div className={classes.title}>SuccessFul Landing</div>{' '}
             <div className={classes.subTitle}>{data.launch_site.site_name}</div>
           </Typography>
