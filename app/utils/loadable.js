@@ -1,13 +1,7 @@
-import React, { lazy, Suspense } from 'react';
 
-const loadable = (importFunc, { fallback = null } = { fallback: null }) => {
-  const LazyComponent = lazy(importFunc);
+import dynamic from 'next/dynamic';
+import Loader from 'components/Loader';
 
-  return props => (
-    <Suspense fallback={fallback}>
-      <LazyComponent {...props} />
-    </Suspense>
-  );
-};
+const loadable = importFunc => dynamic(importFunc, loading: () => <Loader />);
 
 export default loadable;
