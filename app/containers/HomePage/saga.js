@@ -10,15 +10,15 @@ function* getSpaceData({ params }) {
   const { launchSuccess, landSuccess, launchYear } = params;
   let link = `https://api.spacexdata.com/v3/launches?limit=100`;
 
-  if (launchSuccess) {
+  if (launchSuccess !== '') {
     link += `&launch_success=${launchSuccess}`;
   }
-  if (landSuccess) {
+  if (landSuccess !== '') {
     link += `&land_success=${landSuccess}`;
   }
 
   if (launchYear) {
-    link += `&land_success=${landSuccess}&launch_year=${launchYear}`;
+    link += `&launch_year=${launchYear}`;
   }
 
   try {

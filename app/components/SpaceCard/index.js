@@ -10,13 +10,13 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import { last, isEmpty } from 'lodash';
-import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
   root: {
     margin: 10,
+    width: '10vw',
   },
   media: {
     height: 206,
@@ -27,19 +27,21 @@ const useStyles = makeStyles({
     color: 'blue',
     fontWeight: 'bold',
     fontSize: 24,
-    padding: 10,
+    padding: 5,
+    textAlign: 'start',
   },
   title: {
     color: '#000000',
     fontWeight: 900,
     fontSize: 18,
-    padding: 10,
+    padding: 5,
+    textAlign: 'start',
   },
   subTitle: {
     color: 'blue',
     fontWeight: 'bold',
     fontSize: 18,
-    padding: 10,
+    padding: 5,
   },
 });
 
@@ -57,52 +59,42 @@ function SpaceCard({ data }) {
 
   return (
     <Link href={video_link}>
-      <Card className={classes.root}>
-        <CardMedia
-          component="img"
-          className={classes.media}
-          src={renderImage()}
-          title={data.mission_name}
-        />
-        <Typography
-          gutterBottom
-          variant="h5"
-          className={classes.heading}
-          component="p"
-          data-aos="flip-right"
-        >
-          {data.mission_name}
-        </Typography>
-        <Typography
-          variant="body2"
-          gutterBottom
-          component="div"
-          data-aos="flip-right"
-        >
-          <div className={classes.title}>Launch Year</div>{' '}
-          <div className={classes.subTitle}>{data.launch_year}</div>
-        </Typography>
-        <Typography
-          variant="body2"
-          gutterBottom
-          component="div"
-          data-aos="flip-right"
-        >
-          <div className={classes.title}>SuccessFul Launch</div>{' '}
-          <div className={classes.subTitle}>
-            {data.launch_success.toString()}
-          </div>
-        </Typography>
-        <Typography
-          variant="body2"
-          gutterBottom
-          component="div"
-          data-aos="flip-right"
-        >
-          <div className={classes.title}>SuccessFul Landing</div>{' '}
-          <div className={classes.subTitle}>{data.launch_site.site_name}</div>
-        </Typography>
-      </Card>
+      <CardMedia
+        component="img"
+        className={classes.media}
+        src={renderImage()}
+        title={data.mission_name}
+      />
+      <Typography
+        gutterBottom
+        variant="h5"
+        className={classes.heading}
+        component="p"
+      >
+        {data.mission_name}
+      </Typography>
+      <Typography
+        variant="body2"
+        gutterBottom
+        component="div"
+        data-aos="flip-right"
+      >
+        <div className={classes.title}>Launch Year</div>{' '}
+        <div className={classes.subTitle}>{data.launch_year}</div>
+      </Typography>
+      <Typography variant="body2" gutterBottom component="div">
+        <div className={classes.title}>SuccessFul Launch</div>{' '}
+        <div className={classes.subTitle}>{data.launch_success.toString()}</div>
+      </Typography>
+      <Typography
+        variant="body2"
+        gutterBottom
+        component="div"
+        data-aos="flip-right"
+      >
+        <div className={classes.title}>SuccessFul Landing</div>{' '}
+        <div className={classes.subTitle}>{data.launch_site.site_name}</div>
+      </Typography>
     </Link>
   );
 }

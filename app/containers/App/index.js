@@ -14,8 +14,6 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 
-import Container from '@material-ui/core/Container';
-
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -37,13 +35,13 @@ export function App() {
   });
 
   return (
-    <Container disableGutters>
+    <div>
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
-    </Container>
+    </div>
   );
 }
 

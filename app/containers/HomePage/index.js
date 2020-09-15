@@ -18,9 +18,14 @@ import { compose } from 'redux';
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 
+import { isEmpty } from 'lodash';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import { CircularProgress } from '@material-ui/core';
+import { LinearProgress } from '@material-ui/core';
+import MuiAlert from '@material-ui/lab/Alert';
 
 import List from 'components/List';
 import Options from 'components/Options';
@@ -31,24 +36,31 @@ import saga from './saga';
 import messages from './messages';
 import { requestSpaceData } from './actions';
 
+const useStyles = makeStyles(() => ({
+  appBar: {
+    top: 'auto',
+    bottom: 0,
+    display: 'flex',
+    flexDirection: 'row',
+    alignContent: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#d5d5d5',
+    color: '#000000',
+    width: '99%',
+  },
+}));
+
+function Alert(props) {
+  return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 export function HomePage({ OnRequestSpaceData, homePage: { data, loading } }) {
   useInjectReducer({ key: 'homePage', reducer });
   useInjectSaga({ key: 'homePage', saga });
-
+  const classes = useStyles();
   useEffect(() => {
-    OnRequestSpaceData({});
+    OnRequestSpaceData({ launchSuccess: '', landSuccess: '', launchYear: '' });
   }, []);
-
-  if (loading) {
-    return (
-      <div
-        className="d-flex flex-column align-items-center justify-content-center"
-        style={{ height: '100vh' }}
-      >
-        <CircularProgress />
-      </div>
-    );
-  }
 
   function handleFilterData(filterData) {
     OnRequestSpaceData(filterData);
@@ -59,8 +71,12 @@ export function HomePage({ OnRequestSpaceData, homePage: { data, loading } }) {
         <title>HomePage</title>
         <meta name="description" content="Description of HomePage" />
       </Helmet>
-
-      <div className="container">
+      {loading ? (
+        <div style={{ position: 'absolute', top: 0, width: '100%' }}>
+          <LinearProgress />
+        </div>
+      ) : null}
+      <div style={{ padding: '50px 0' }}>
         <Typography
           variant="h3"
           component="h1"
@@ -72,18 +88,30 @@ export function HomePage({ OnRequestSpaceData, homePage: { data, loading } }) {
         </Typography>
         <Grid
           container
-          spacing={10}
-          style={{ padding: '24px' }}
+          spacing={3}
+          direction="row"
+          justify="center"
           alignItems="flex-start"
         >
-          <Grid item xs={12} sm={12} md={4} lg={3} xl={3}>
-            <Options action={handleFilterData} />
-          </Grid>
-          <Grid item xs={12} sm={12} md={8} lg={9} xl={9}>
-            <List data={data} />
-          </Grid>
+          <Options action={handleFilterData} />
+          {isEmpty(data) ? (
+            <Grid item lg={8} xl={8}>
+              <Alert severity="info">No Data Found!</Alert>
+            </Grid>
+          ) : (
+            <Grid item lg={8} xl={8}>
+              <List data={data} />
+            </Grid>
+          )}
         </Grid>
       </div>
+      <AppBar position="fixed" color="primary" className={classes.appBar}>
+        <Toolbar>
+          <Typography variant="body1" className="bold">
+            Developed by: Shobhit Goel
+          </Typography>
+        </Toolbar>
+      </AppBar>
     </div>
   );
 }
